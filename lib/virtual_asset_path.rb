@@ -1,6 +1,6 @@
-module VirtualAssetFolder
+module VirtualAssetPath
   class << self
-    attr_accessor :hashing_method, :hashing_style
+    attr_accessor :method, :style
   end
 end
 
@@ -9,7 +9,7 @@ module ActionView::Helpers::AssetTagHelper
     asset_path = rewrite_asset_path_without_virtual_folder(source)
     id = virtual_asset_folder(asset_path)
     if id.present?
-      case VirtualAssetFolder.hashing_style
+      case VirtualAssetPath.style
       when :folder, nil then "/asset-v#{id}#{asset_path}"
       when :query then "#{asset_path}?#{id}"
       end
@@ -42,7 +42,7 @@ module ActionView::Helpers::AssetTagHelper
 
   # overwrite to disable / use mtime ?
   def virtual_asset_folder_id(path)
-    case VirtualAssetFolder.hashing_method
+    case VirtualAssetPath.method
     when :md5,nil then Digest::MD5.file(path).hexdigest[0..6]
     when :mtime then File.mtime(path).to_i.to_s
     else

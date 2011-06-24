@@ -1,1 +1,1 @@
-require 'virtual_asset_folder'
+require 'virtual_asset_path'

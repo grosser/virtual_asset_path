@@ -46,6 +46,9 @@ Or
  - [Speed] MD5 takes ~0.1 ms/file (results are cached per instance if cache_asset_timestamps is active)
  - [Speed] mtime takes ~0.005 ms/file (...)
 
+# TODO
+ - Rails 3.1 support -- things got much more complicated ...
+
 Author
 ======
 [Michael Grosser](http://grosser.it)<br/>

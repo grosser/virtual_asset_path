@@ -17,13 +17,13 @@ Gem::Specification.new do |s|
     "Rakefile",
     "Readme.md",
     "VERSION",
-    "bitfields.gemspec",
     "init.rb",
     "lib/virtual_asset_path.rb",
     "test/public/bar/foo.jpg",
     "test/test_helper.rb",
     "test/views/virtual_asset_path_test/index.erb",
-    "test/virtual_asset_path_test.rb"
+    "test/virtual_asset_path_test.rb",
+    "virtual_asset_path.gemspec"
   ]
   s.homepage = %q{http://github.com/grosser/virtual_asset_path}
   s.require_paths = ["lib"]

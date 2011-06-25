@@ -13,6 +13,7 @@ class VirtualAssetPathTest < ActionController::TestCase
     ENV["RAILS_ASSET_ID"] = nil
     @controller = VirtualAssetPathTestController.new
     ActionView::Base.send :class_variable_set, '@@asset_timestamps_cache', {}
+    ActionView::Base.send :class_variable_set, '@@cache_asset_timestamps', true
   end
 
   test "adds folder to found assets" do

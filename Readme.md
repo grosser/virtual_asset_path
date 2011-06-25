@@ -11,7 +11,7 @@ Virtual asset paths for great caching.
     # default + simple rewrite rules
     /asset-v1afd23/foo/bar.jpg  # style: folder   method: MD5
 
-    # rails3-ish, but complicated rewrite rules
+    # rails 3.1-ish, but complicated rewrite rules
     /foo/bar-asset-v1afd23.jpg  # style: suffix   method: MD5
 
     # no rewrite rule needed (great for development)
@@ -41,6 +41,10 @@ Or
 
     ??? # style: folder
     ??? # style: suffix
+
+# Tips
+ - [Speed] MD5 takes ~0.1 ms/file (results are cached per instance if cache_asset_timestamps is active)
+ - [Speed] mtime takes ~0.005 ms/file (...)
 
 Author
 ======

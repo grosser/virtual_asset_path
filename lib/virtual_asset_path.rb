@@ -5,8 +5,8 @@ module VirtualAssetPath
 end
 
 module ActionView::Helpers::AssetTagHelper
-  def rewrite_asset_path_with_virtual_folder(source)
-    asset_path = rewrite_asset_path_without_virtual_folder(source)
+  def rewrite_asset_path_with_virtual_folder(*args)
+    asset_path = rewrite_asset_path_without_virtual_folder(*args)
     id = virtual_asset_folder(asset_path)
     if id.present?
       case VirtualAssetPath.style

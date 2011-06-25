@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{virtual_asset_path}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Grosser"]
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "init.rb",
     "lib/virtual_asset_path.rb",
+    "test/public/bar/baz",
     "test/public/bar/foo.jpg",
     "test/test_helper.rb",
     "test/views/virtual_asset_path_test/index.erb",

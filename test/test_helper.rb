@@ -8,6 +8,19 @@ require 'redgreen'
 $LOAD_PATH << 'lib'
 require 'init'
 
+class ActionView::Base
+  def debug(*args)
+    args.inspect
+  end
+
+  include ActionView::Helpers::AssetTagHelper
+  include ActionView::Helpers::TagHelper
+end
+
+silence_warnings do
+  ActionView::Helpers::AssetTagHelper::ASSETS_DIR = 'test/public'
+end
+
 if ActionPack::VERSION::MAJOR > 2
   require 'action_dispatch/testing/test_process'
 

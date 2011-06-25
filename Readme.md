@@ -17,6 +17,10 @@ Virtual asset paths for great caching.
     # no rewrite rule needed (great for development)
     /foo/bar.jpg?1afd23         # style: query    method: MD5
 
+    # different methods ...
+    /asset-v1308942465/foo/bar.jpg  # style: folder   method: mtime
+    /asset-vxxx/foo/bar.jpg         # style: folder   method: ENV['RAILS_ASSET_ID'] = 'xxx'
+
     # configure
     VirtualAssetPath.style = :folder # default
     VirtualAssetPath.style = :MD5    # default

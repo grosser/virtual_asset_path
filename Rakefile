@@ -14,9 +14,9 @@ end
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = 'bitfields'
-    gem.summary = "Save migrations and columns by storing multiple booleans in a single integer."
-    gem.email = "grosser.michael@gmail.com"
+    gem.name = 'virtual_asset_path'
+    gem.summary = "Instantly expired, cacheable assets, without query params"
+    gem.email = "michael@grosser.it"
     gem.homepage = "http://github.com/grosser/#{gem.name}"
     gem.authors = ["Michael Grosser"]
   end

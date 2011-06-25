@@ -54,4 +54,8 @@ class VirtualAssetPathTest < ActionController::TestCase
     get :index, :image => '/bar/foo.jpg'
     @response.body.strip.should == "<img alt=\"\" src=\"/asset-v#{File.mtime('test/public/bar/foo.jpg').to_i}/bar/foo.jpg\" />"
   end
+
+  test "has a version" do
+    VirtualAssetPath::VERSION.should =~ /^\d+\.\d+\.\d+$/
+  end
 end

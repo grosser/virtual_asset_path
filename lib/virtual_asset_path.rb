@@ -1,4 +1,6 @@
 module VirtualAssetPath
+  VERSION = File.read( File.join(File.dirname(__FILE__),'..','VERSION') ).strip
+
   class << self
     attr_accessor :method, :style
   end

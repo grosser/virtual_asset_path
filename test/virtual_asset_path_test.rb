@@ -55,6 +55,24 @@ class VirtualAssetPathTest < ActionController::TestCase
     @response.body.strip.should == "<img alt=\"\" src=\"/asset-v#{File.mtime('test/public/bar/foo.jpg').to_i}/bar/foo.jpg\" />"
   end
 
+  test "caches with query" do
+    VirtualAssetPath.style = :query
+    get :index, :image => '/bar/foo.jpg'
+    @response.body.strip.should == "<img alt=\"\" src=\"/bar/foo.jpg?d41d8cd\" />"
+  end
+
+  test "caches with suffix" do
+    VirtualAssetPath.style = :suffix
+    get :index, :image => '/bar/foo.jpg'
+    @response.body.strip.should == "<img alt=\"\" src=\"/bar/foo-asset-vd41d8cd.jpg\" />"
+  end
+
+  test "caches with suffix and no ." do
+    VirtualAssetPath.style = :suffix
+    get :index, :image => '/bar/baz'
+    @response.body.strip.should == "<img alt=\"\" src=\"/bar/baz-asset-v258622b\" />"
+  end
+
   test "has a version" do
     VirtualAssetPath::VERSION.should =~ /^\d+\.\d+\.\d+$/
   end

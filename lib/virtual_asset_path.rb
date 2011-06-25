@@ -13,6 +13,13 @@ module ActionView::Helpers::AssetTagHelper
     if id.present?
       case VirtualAssetPath.style
       when :folder, nil then "/asset-v#{id}#{asset_path}"
+      when :suffix
+        suffix = "-asset-v#{id}"
+        if asset_path.include?('.')
+          asset_path.sub(/\.[^\.]*$/, "#{suffix}\\0")
+        else
+          "#{asset_path}#{suffix}"
+        end
       when :query then "#{asset_path}?#{id}"
       end
     else
@@ -45,7 +52,7 @@ module ActionView::Helpers::AssetTagHelper
   # overwrite to disable / use mtime ?
   def virtual_asset_folder_id(path)
     case VirtualAssetPath.method
-    when :md5,nil then Digest::MD5.file(path).hexdigest[0..6]
+    when :MD5,nil then Digest::MD5.file(path).hexdigest[0..6]
     when :mtime then File.mtime(path).to_i.to_s
     else
       raise "unsupported hashing method"

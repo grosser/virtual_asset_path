@@ -1,8 +1,7 @@
-Virtual asset paths for great caching.
+Improve Rails Asset Caching with MD5 and virtual folders
 
- - cacheable without query params
- - cached by MD5 of content (only change when the content changes / same on all servers)
-
+ - MD5 only changes on content-change and is identical on all servers
+ - Virtual folders are CDN/proxy/... cacheable and transparent via nginx/apache rewrite rule
 
 # Results
 
